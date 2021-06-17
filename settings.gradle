@@ -1,0 +1,3 @@
+rootProject.name = "ShadowEvery"
+include ':app'
+include ':everyLib'
