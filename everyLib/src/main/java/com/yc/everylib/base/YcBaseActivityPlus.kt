@@ -1,6 +1,5 @@
-package com.yc.everylib
+package com.yc.everylib.base
 
-import android.content.Intent
 import android.view.LayoutInflater
 import androidx.viewbinding.ViewBinding
 

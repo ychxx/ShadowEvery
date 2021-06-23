@@ -1,4 +1,4 @@
-package com.yc.everylib
+package com.yc.everylib.base
 
 import android.content.Context
 import android.os.Bundle

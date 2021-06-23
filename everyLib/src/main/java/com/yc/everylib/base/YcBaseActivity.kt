@@ -1,4 +1,4 @@
-package com.yc.everylib
+package com.yc.everylib.base
 
 import android.annotation.SuppressLint
 import android.app.Activity

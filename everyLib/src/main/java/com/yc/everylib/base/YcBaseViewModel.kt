@@ -1,4 +1,4 @@
-package com.yc.everylib
+package com.yc.everylib.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
