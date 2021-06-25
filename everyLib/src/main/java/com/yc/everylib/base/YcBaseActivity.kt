@@ -14,6 +14,7 @@ import androidx.annotation.MainThread
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.*
 import androidx.viewbinding.ViewBinding
+import com.yc.everylib.utils.YcViewModelLazy
 import com.yc.everylib.manager.YcActivityManager
 import kotlinx.coroutines.launch
 
@@ -23,8 +24,8 @@ import kotlinx.coroutines.launch
  * UseDes:
  */
 @SuppressLint("SetTextI18n")
-abstract class YcBaseActivity<V : ViewBinding>(private val createVB: ((LayoutInflater) -> V)? = null) : AppCompatActivity() {
-    protected lateinit var mViewBinding: V
+abstract class YcBaseActivity<VB : ViewBinding>(private val createVB: ((LayoutInflater) -> VB)? = null) : AppCompatActivity() {
+    protected lateinit var mViewBinding: VB
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (createVB != null) {
@@ -47,15 +48,25 @@ abstract class YcBaseActivity<V : ViewBinding>(private val createVB: ((LayoutInf
     abstract fun initView()
 
     @MainThread
-    public inline fun <reified VM : ViewModel> ComponentActivity.ycViewModels(
+    protected inline fun <reified VM : YcBaseViewModel> ComponentActivity.ycViewModels(
         noinline factoryProducer: (() -> ViewModelProvider.Factory)? = null
     ): Lazy<VM> {
         val factoryPromise = factoryProducer ?: {
             defaultViewModelProviderFactory
         }
-        return ViewModelLazy(VM::class, { viewModelStore }, factoryPromise)
+        return YcViewModelLazy(VM::class, { viewModelStore }, factoryPromise, {
+            it.mIsShowLoading.observe(this@YcBaseActivity) {
+                if (it) {
+                    showLoading()
+                } else {
+                    hideLoading()
+                }
+            }
+        })
     }
 
+    protected fun showLoading() {}
+    protected fun hideLoading() {}
     protected fun launch(block: suspend () -> Unit) =
         lifecycleScope.launch {
             block()
