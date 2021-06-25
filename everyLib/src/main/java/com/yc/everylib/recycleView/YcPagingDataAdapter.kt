@@ -15,9 +15,10 @@ import androidx.viewbinding.ViewBinding
  * 封装PagingDataAdapter
  */
 abstract class YcPagingDataAdapter<Data : Any, VB : ViewBinding>(
-    protected val createVB: ((LayoutInflater) -> VB)? = null,
-    protected val mContext: Context,
+    private val createVB: ((LayoutInflater) -> VB)? = null,
+    private val mContext: Context,
     diffCallback: DiffUtil.ItemCallback<Data>
+
 ) : PagingDataAdapter<Data, YcViewHolder<VB>>(diffCallback) {
     private var mItemClick: ((Data, Int) -> Unit)? = null
 
