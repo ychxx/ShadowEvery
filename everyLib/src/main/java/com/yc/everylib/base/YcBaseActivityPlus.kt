@@ -15,7 +15,6 @@ abstract class YcBaseActivityPlus<VB : ViewBinding>(createVB: ((LayoutInflater) 
     }
 
     abstract fun VB.initView()
-
 //    protected fun startResultYc(intent: Intent, success: ((result: Instrumentation.ActivityResult) -> Unit)? = null) {
 //        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
 //            success?.let { it1 ->

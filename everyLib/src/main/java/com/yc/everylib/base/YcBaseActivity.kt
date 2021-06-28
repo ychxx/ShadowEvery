@@ -35,7 +35,6 @@ abstract class YcBaseActivity<VB : ViewBinding>(private val createVB: ((LayoutIn
         }
         YcActivityManager.addActivity(this)
     }
-
     override fun onDestroy() {
         YcActivityManager.finishActivity(this)
         super.onDestroy()

@@ -18,6 +18,5 @@ abstract class YcBaseFragmentPlus<VB : ViewBinding>(createVB: ((LayoutInflater, 
     override fun initView(view: View, savedInstanceState: Bundle?) {
         mViewBinding!!.initView(view, savedInstanceState)
     }
-
     abstract fun VB.initView(view: View, savedInstanceState: Bundle?)
 }

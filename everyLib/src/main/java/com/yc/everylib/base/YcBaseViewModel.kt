@@ -25,7 +25,6 @@ open class YcBaseViewModel : ViewModel() {
     val mIsShowLoading: LiveData<Boolean> = _mIsShowLoading
     protected var mLoadingJob: Job? = null
     protected var mDefaultDelayTime = 1500L
-
     protected inline fun ycLaunch(crossinline block: suspend (coroutineScope: CoroutineScope) -> Unit): Job {
         return viewModelScope.launch {
             block(this)

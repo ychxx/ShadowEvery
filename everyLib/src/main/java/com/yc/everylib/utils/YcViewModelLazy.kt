@@ -31,6 +31,5 @@ class YcViewModelLazy<VM : YcBaseViewModel>(
                 viewModel
             }
         }
-
     override fun isInitialized(): Boolean = cached != null
 }
