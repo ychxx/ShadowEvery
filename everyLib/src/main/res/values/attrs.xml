@@ -36,4 +36,11 @@
             <flag name="numberDecimal" value="0x00002002" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="YcBtnCommon">
+        <attr name="ycBgIsAble" format="boolean" />
+        <attr name="ycBg" format="reference|color" />
+        <attr name="ycBgEnable" format="reference|color" />
+        <attr name="ycTextColor" format="color" />
+        <attr name="ycTextColorEnable" format="color" />
+    </declare-styleable>
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.ComponentActivity
 import androidx.annotation.MainThread
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
@@ -50,7 +49,7 @@ abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutIn
     }
 
     @MainThread
-    protected inline fun <reified VM : YcBaseViewModel> ComponentActivity.ycViewModels(
+    protected inline fun <reified VM : YcBaseViewModel> Fragment.ycViewModels(
         noinline factoryProducer: (() -> ViewModelProvider.Factory)? = null
     ): Lazy<VM> {
         val factoryPromise = factoryProducer ?: {
@@ -68,7 +67,7 @@ abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutIn
     }
 
     @MainThread
-    protected inline fun <reified VM : YcBaseViewModel> ComponentActivity.ycViewModelsActivity(
+    protected inline fun <reified VM : YcBaseViewModel> Fragment.ycViewModelsActivity(
         noinline factoryProducer: (() -> ViewModelProvider.Factory)? = null
     ): Lazy<VM> {
         val factoryPromise = factoryProducer ?: {

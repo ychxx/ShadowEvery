@@ -30,7 +30,7 @@ open class YcEdtImg @JvmOverloads constructor(context: Context, attrs: Attribute
 
     init {
         val a: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.YcEdtImg)
-        val bg = a.getResourceId(R.styleable.YcEdtImg_ycBg, R.drawable.evey_shape_underline)
+        val bg = a.getResourceId(R.styleable.YcEdtImg_ycBg, R.drawable.every_shape_underline)
 
         val imgRight1Bg = a.getResourceId(R.styleable.YcEdtImg_ycImgRight1Bg, R.drawable.evey_icon_eye_gone)
         val imgRight1Visibility = a.getInt(R.styleable.YcEdtImg_ycImgRight1Visibility, 0)
@@ -96,9 +96,4 @@ open class YcEdtImg @JvmOverloads constructor(context: Context, attrs: Attribute
         1 -> View.INVISIBLE
         else -> View.GONE
     }
-
-    fun dpToPx(context: Context, dp: Float): Float {
-        return context.resources.displayMetrics.density * dp + 0.5f
-    }
-
 }
