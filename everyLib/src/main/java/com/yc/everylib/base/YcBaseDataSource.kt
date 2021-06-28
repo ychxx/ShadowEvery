@@ -1,3 +1,4 @@
+/*
 package com.yc.everylib.base
 
 import androidx.paging.PagingSource
@@ -5,9 +6,11 @@ import com.yc.commonlib.data.entity.YcDataSourceEntity
 import com.yc.commonlib.extension.toYcException
 import com.yc.commonlib.extension.ycTryReturnData
 
+*/
 /**
  *
- */
+ *//*
+
 private const val STARTING_PAGE_INDEX = 1
 
 abstract class YcBaseDataSource<T : Any> : PagingSource<Int, T>() {
@@ -43,4 +46,4 @@ abstract class YcBaseDataSource<T : Any> : PagingSource<Int, T>() {
 
 
     abstract suspend fun load(pageIndex: Int, pageSize: Int): YcDataSourceEntity<T>
-}
+}*/

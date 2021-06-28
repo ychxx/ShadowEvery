@@ -70,11 +70,4 @@ dependencies {
     // Jetpack Compose Integration
     api "androidx.paging:paging-compose:1.0.0-alpha04"
 
-
-    /**-- 加载更多和刷新 --**/
-    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'  //1.0.5及以前版本的老用户升级需谨慎，API改动过大
-    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'  //没有使用特殊Header，可以不加这行
-
-    compileOnly 'com.github.ychxx:ShadowCommon:0.1'
-
 }
