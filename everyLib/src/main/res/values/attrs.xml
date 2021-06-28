@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="ycBg" format="reference|color" />
     <declare-styleable name="YcEdtImg">
-        <attr name="ycBg" format="reference" />
+        <attr name="ycBg" />
         <attr name="ycImgRight1Bg" format="reference" />
         <attr name="ycImgRight1Visibility" format="enum">
             <enum name="visible" value="0" />
@@ -38,7 +39,7 @@
     </declare-styleable>
     <declare-styleable name="YcBtnCommon">
         <attr name="ycBgIsAble" format="boolean" />
-        <attr name="ycBg" format="reference|color" />
+        <attr name="ycBg" />
         <attr name="ycBgEnable" format="reference|color" />
         <attr name="ycTextColor" format="color" />
         <attr name="ycTextColorEnable" format="color" />
