@@ -8,13 +8,13 @@ import androidx.viewbinding.ViewBinding
  * Date: 2021/6/9 16:47
  * UseDes:
  */
-abstract class YcBaseActivityPlus<V : ViewBinding>(createVB: ((LayoutInflater) -> V)? = null) : YcBaseActivity<V>(createVB) {
+abstract class YcBaseActivityPlus<VB : ViewBinding>(createVB: ((LayoutInflater) -> VB)? = null) : YcBaseActivity<VB>(createVB) {
 
     override fun initView() {
         mViewBinding.initView()
     }
 
-    abstract fun V.initView()
+    abstract fun VB.initView()
 
 //    protected fun startResultYc(intent: Intent, success: ((result: Instrumentation.ActivityResult) -> Unit)? = null) {
 //        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
