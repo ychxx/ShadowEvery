@@ -70,4 +70,6 @@ dependencies {
     // Jetpack Compose Integration
     api "androidx.paging:paging-compose:1.0.0-alpha04"
 
+    /**--图表--**/
+    api 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }

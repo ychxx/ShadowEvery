@@ -37,6 +37,18 @@ object YcResources {
     }
 
     /**
+     * 获取颜色值
+     *
+     * @param resId 颜色资源id
+     * @return 颜色值
+     */
+    @JvmStatic
+    @ColorInt
+    fun getColor(resId: Int): Int {
+        return getColor(resId)
+    }
+
+    /**
      * 获取Drawable
      *
      * @param resId Drawable资源id
@@ -46,6 +58,17 @@ object YcResources {
     @JvmStatic
     fun getDrawable(resId: Int, resources: Resources = YcEveryInit.getResources()): Drawable {
         return resources.getDrawable(resId)
+    }
+
+    /**
+     * 获取Drawable
+     *
+     * @param resId Drawable资源id
+     * @return Drawable
+     */
+    @JvmStatic
+    fun getDrawable(resId: Int): Drawable? {
+        return getDrawable(resId)
     }
 
     /**

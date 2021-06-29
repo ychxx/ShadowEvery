@@ -9,4 +9,15 @@
     <color name="every_lib_edt_text">#121412</color>
     <color name="every_lib_edt_text_hide">#6C7282</color>
     <color name="every_line">#F8F8F8</color>
+
+
+    <!--图标chart-->
+    <color name="chart_high_light_color">#1266F4</color>
+    <color name="chart_x_y_text_color">#7A7E8A</color>
+    <color name="chart_y_grid_color">#CCCCCC</color>
+    <color name="chart_threshold_line_color">#F5555D</color>
+    <color name="chart_value_text_color">#1266F4</color>
+    <color name="chart_value_circle_color">#F8A73E</color>
+    <color name="chartBarColor1">#2CBB70</color>
+    <color name="chartBarColor2">#FFB72C</color>
 </resources>
