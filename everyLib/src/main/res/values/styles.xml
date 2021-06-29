@@ -1,2 +1,6 @@
 <resources>
+    <!-- 对话框风格 -->
+    <style name="YcCommonDialogStyle" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="android:windowBackground">#00000000</item>
+    </style>
 </resources>

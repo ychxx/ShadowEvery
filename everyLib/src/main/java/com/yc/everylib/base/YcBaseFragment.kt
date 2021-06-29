@@ -28,9 +28,6 @@ abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutIn
             super.onCreateView(inflater, container, savedInstanceState)
         }
     }
-    override fun getContext(): Context {
-        return requireContext()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

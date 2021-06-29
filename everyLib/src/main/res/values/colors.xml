@@ -8,5 +8,5 @@
     <!-- 输入框 -->
     <color name="every_lib_edt_text">#121412</color>
     <color name="every_lib_edt_text_hide">#6C7282</color>
-
+    <color name="every_line">#F8F8F8</color>
 </resources>
