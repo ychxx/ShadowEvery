@@ -3,9 +3,7 @@ package com.yc.everylib.utils
 import android.content.Context
 import android.util.DisplayMetrics
 import android.view.WindowManager
-import com.yc.everylib.YcEveryInit
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.yc.everylib.init.YcEveryInit
 
 /**
  *

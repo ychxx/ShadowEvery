@@ -1,17 +1,16 @@
 package com.yc.everylib.base
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.MainThread
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import androidx.viewbinding.ViewBinding
 import com.yc.everylib.utils.YcViewModelLazy
 import kotlinx.coroutines.launch
-
 
 /**
  * Creator: yc
@@ -67,9 +66,9 @@ abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutIn
         noinline factoryProducer: (() -> ViewModelProvider.Factory)? = null
     ): Lazy<VM> {
         val factoryPromise = factoryProducer ?: {
-            defaultViewModelProviderFactory
+            requireActivity().defaultViewModelProviderFactory
         }
-        return YcViewModelLazy(VM::class, { viewModelStore }, factoryPromise, {
+        return YcViewModelLazy(VM::class, { requireActivity().viewModelStore }, factoryPromise, {
             it.mIsShowLoading.observe(requireActivity()) {
                 if (it) {
                     showLoading()
@@ -82,6 +81,10 @@ abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutIn
 
     protected fun showLoading() {}
     protected fun hideLoading() {}
+    protected fun showToast(msg: String) {
+        Toast.makeText(this.requireContext(), msg, Toast.LENGTH_LONG).show()
+    }
+
     protected fun launch(block: suspend () -> Unit) {
         lifecycleScope.launch {
             block()

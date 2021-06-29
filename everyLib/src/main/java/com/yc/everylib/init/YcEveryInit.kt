@@ -1,4 +1,4 @@
-package com.yc.everylib
+package com.yc.everylib.init
 
 import android.app.Application
 import android.content.res.Resources

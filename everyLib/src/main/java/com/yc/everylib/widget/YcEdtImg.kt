@@ -91,6 +91,17 @@ open class YcEdtImg @JvmOverloads constructor(context: Context, attrs: Attribute
 
     }
 
+    fun setText(msg: String) {
+        mEdt.setText(msg)
+    }
+
+    fun getText(msg: String): String = mEdt.text.toString()
+
+    fun getEdt(): EditText {
+        return mEdt
+    }
+
+
     fun getViewVisibility(flag: Int): Int = when (flag) {
         0 -> View.VISIBLE
         1 -> View.INVISIBLE
