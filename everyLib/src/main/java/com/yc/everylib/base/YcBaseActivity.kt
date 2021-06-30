@@ -35,6 +35,7 @@ abstract class YcBaseActivity<VB : ViewBinding>(private val createVB: ((LayoutIn
         }
         YcActivityManager.addActivity(this)
     }
+
     override fun onDestroy() {
         YcActivityManager.finishActivity(this)
         super.onDestroy()
@@ -82,15 +83,11 @@ abstract class YcBaseActivity<VB : ViewBinding>(private val createVB: ((LayoutIn
             }
         }.launch(intent)
     }
-
-    fun show(msg: String?) {
+    
+    fun showToast(msg: String) {
         if (this.isFinishing) {
             return
         }
-        if (msg == null) {
-            Toast.makeText(this, "-", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-        }
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }

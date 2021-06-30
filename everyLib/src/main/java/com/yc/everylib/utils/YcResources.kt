@@ -5,7 +5,7 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
-import com.yc.everylib.YcEveryInit
+import com.yc.everylib.init.YcEveryInit
 
 /**
  * 用于获取资源(需初始化YcUtilsInit.init(x))
