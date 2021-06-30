@@ -28,8 +28,9 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
-import com.hc.labourrealname.R;
-import com.yc.yclibx.comment.YcResources;
+import com.yc.everylib.R;
+import com.yc.everylib.utils.YcResources;
+
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -828,7 +829,7 @@ public class ChartLineRenderer extends LineRadarRenderer {
     }
 
     /**
-     * Releases the drawing bitmap. This should be called when {@link LineChart#onDetachedFromWindow()}.
+     * Releases the drawing bitmap. This should be called when .
      */
     public void releaseBitmap() {
         if (mBitmapCanvas != null) {
