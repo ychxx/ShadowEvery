@@ -29,6 +29,7 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.yc.everylib.R;
+import com.yc.everylib.init.YcEveryInit;
 import com.yc.everylib.utils.YcResources;
 
 
@@ -463,7 +464,7 @@ public class ChartLineRenderer extends LineRadarRenderer {
 
                 // get the color that is set for this line-segment
 //                mRenderPaint.setColor(dataSet.getColor(j));
-                mRenderPaint.setColor(YcResources.getColor(R.color.chart_threshold_line_color));
+                mRenderPaint.setColor(YcResources.getColorRes(R.color.every_lib_chart_threshold_line_color, YcEveryInit.getResources()));
                 canvas.drawLines(mLineBuffer, 0, pointsPerEntryPair * 2, mRenderPaint);
             }
 

@@ -11,6 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val recyclerView = findViewById<RecyclerView>(R.id.rvMain)
-        startActivity(Intent(this, TestEdtImg::class.java))
+        startActivity(Intent(this, TestDatastore::class.java))
     }
 }

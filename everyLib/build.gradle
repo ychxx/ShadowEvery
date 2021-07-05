@@ -72,4 +72,7 @@ dependencies {
 
     /**--图表--**/
     api 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    /**--DataStore 替代sharePreference--**/
+    implementation "androidx.datastore:datastore-preferences:$datastore_version"
+    implementation "androidx.datastore:datastore-preferences-core:$datastore_version"
 }

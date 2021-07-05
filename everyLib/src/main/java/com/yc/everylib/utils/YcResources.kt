@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
+import com.yc.everylib.R
 import com.yc.everylib.init.YcEveryInit
 
 /**
@@ -20,15 +21,13 @@ object YcResources {
      */
     @JvmStatic
     @ColorInt
-    fun getColor(resId: Int, resources: Resources = YcEveryInit.getResources()): Int {
+    fun getColorRes(resId: Int, resources: Resources = YcEveryInit.getResources()): Int {
         return resources.getColor(resId)
     }
 
     /**
      * 获取颜色值
-     *
      * @param color 十六进制
-     * @return
      */
     @JvmStatic
     @ColorInt
@@ -36,16 +35,10 @@ object YcResources {
         return Color.parseColor(color)
     }
 
-    /**
-     * 获取颜色值
-     *
-     * @param resId 颜色资源id
-     * @return 颜色值
-     */
     @JvmStatic
     @ColorInt
-    fun getColor(resId: Int): Int {
-        return getColor(resId)
+    fun getDimensionPixelSize(resId: Int, resources: Resources = YcEveryInit.getResources()): Int {
+        return resources.getDimensionPixelSize(R.dimen.every_lib_chart_x_axis_text_size)
     }
 
     /**
@@ -58,17 +51,6 @@ object YcResources {
     @JvmStatic
     fun getDrawable(resId: Int, resources: Resources = YcEveryInit.getResources()): Drawable {
         return resources.getDrawable(resId)
-    }
-
-    /**
-     * 获取Drawable
-     *
-     * @param resId Drawable资源id
-     * @return Drawable
-     */
-    @JvmStatic
-    fun getDrawable(resId: Int): Drawable? {
-        return getDrawable(resId)
     }
 
     /**

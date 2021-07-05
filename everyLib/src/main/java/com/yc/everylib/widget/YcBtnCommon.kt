@@ -6,7 +6,7 @@ import android.view.Gravity
 import androidx.annotation.IdRes
 import androidx.appcompat.widget.AppCompatButton
 import com.yc.everylib.R
-import com.yc.everylib.utils.YcResources.getColor
+import com.yc.everylib.utils.YcResources.getColorRes
 import com.yc.everylib.utils.YcUI.dpToPx
 
 /**
@@ -53,8 +53,8 @@ class YcBtnCommon @JvmOverloads constructor(context: Context, attrs: AttributeSe
         val a = context.obtainStyledAttributes(attrs, R.styleable.YcBtnCommon)
         mBgResId = a.getResourceId(R.styleable.YcBtnCommon_ycBg, R.drawable.every_shape_round_button)
         mBgResIdEnable = a.getResourceId(R.styleable.YcBtnCommon_ycBgEnable, R.drawable.every_shape_round_button_enable)
-        mTextColor = a.getColor(R.styleable.YcBtnCommon_ycTextColor, getColor(R.color.white))
-        mTextColorEnable = a.getColor(R.styleable.YcBtnCommon_ycTextColorEnable, getColor(R.color.white))
+        mTextColor = a.getColor(R.styleable.YcBtnCommon_ycTextColor, getColorRes(R.color.white))
+        mTextColorEnable = a.getColor(R.styleable.YcBtnCommon_ycTextColorEnable, getColorRes(R.color.white))
         a.recycle()
         gravity = Gravity.CENTER
         onRefreshUI()
