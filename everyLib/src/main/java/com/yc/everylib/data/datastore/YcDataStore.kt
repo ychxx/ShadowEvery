@@ -26,7 +26,7 @@ object YcDataStore {
     }
 
     @JvmStatic
-    suspend inline fun <reified T : Any> saveMore(crossinline transform: suspend (MutablePreferences) -> Unit) {
+    suspend inline fun saveMore(crossinline transform: suspend (MutablePreferences) -> Unit) {
         YcEveryInit.mApplication.ycDataStore.edit {
             transform(it)
         }
@@ -40,10 +40,11 @@ object YcDataStore {
     }
 
     @JvmStatic
-    inline fun <reified T : Any> getMore(crossinline block: (Preferences) -> Unit) {
+    suspend inline fun getMore(crossinline block: (Preferences) -> Unit) {
         YcEveryInit.mApplication.ycDataStore.data.map {
             block(it)
-        }
+            emptyPreferences()
+        }.first()
     }
 
 }

@@ -20,8 +20,20 @@
         android:text="写入" />
 
     <Button
+        android:id="@+id/btnTestDatastoreRead2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="读取多个" />
+
+    <Button
+        android:id="@+id/btnTestDatastoreWrite2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="写入多个" />
+
+    <Button
         android:id="@+id/btnTestDatastoreAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="添加一段" />
+        android:text="修改数据" />
 </LinearLayout>
