@@ -1,10 +1,13 @@
 package com.yc.everylib.base
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.MainThread
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
@@ -18,11 +21,12 @@ import kotlinx.coroutines.launch
  * UseDes:
  */
 abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutInflater, ViewGroup?, Boolean) -> VB)? = null) : Fragment() {
-    protected var mViewBinding: VB? = null
+    private var _mViewBinding: VB? = null
+    protected val mViewBinding get() = _mViewBinding!!
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return if (createVB != null) {
-            mViewBinding = createVB.invoke(inflater, container, false)
-            mViewBinding!!.root
+            _mViewBinding = createVB.invoke(inflater, container, false)
+            _mViewBinding!!.root
         } else {
             super.onCreateView(inflater, container, savedInstanceState)
         }
@@ -36,7 +40,7 @@ abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutIn
     protected abstract fun initView(view: View, savedInstanceState: Bundle?)
     override fun onDestroy() {
         super.onDestroy()
-        mViewBinding = null
+        _mViewBinding = null
     }
 
     protected fun <T> LiveData<T>.observe(observer: Observer<T>) {
@@ -88,6 +92,24 @@ abstract class YcBaseFragment<VB : ViewBinding>(private val createVB: ((LayoutIn
     protected fun launch(block: suspend () -> Unit) {
         lifecycleScope.launch {
             block()
+        }
+    }
+
+    protected inline fun createResultLauncher(crossinline success: ((result: ActivityResult) -> Unit)) =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode != Activity.RESULT_OK) {
+                success(it)
+            }
+        }
+
+    protected inline fun createResultLauncher(
+        crossinline success: ((result: ActivityResult) -> Unit),
+        crossinline fail: ((result: ActivityResult) -> Unit)
+    ) = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode != Activity.RESULT_OK) {
+            success(it)
+        } else {
+            fail(it)
         }
     }
 }
