@@ -95,7 +95,7 @@ open class YcEdtImg @JvmOverloads constructor(context: Context, attrs: Attribute
         mEdt.setText(msg)
     }
 
-    fun getText(msg: String): String = mEdt.text.toString()
+    fun getText(): String = mEdt.text.toString()
 
     fun getEdt(): EditText {
         return mEdt
