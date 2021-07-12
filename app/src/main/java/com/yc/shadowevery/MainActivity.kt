@@ -9,8 +9,6 @@ import com.yc.everylib.recycleView.YcRecyclerViewAdapter
 import com.yc.everylib.recycleView.YcViewHolder
 import com.yc.everylib.widget.dialog.YcLoadingDialog
 import com.yc.shadowevery.databinding.YcCommonItemBinding
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
     private val loadingDialog: YcLoadingDialog by lazy {
@@ -22,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val recyclerView = findViewById<RecyclerView>(R.id.rvMain)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recyclerView.adapter = object : YcRecyclerViewAdapter<String, YcCommonItemBinding>(YcCommonItemBinding::inflate, this) {
+        recyclerView.adapter = object : YcRecyclerViewAdapter<String, YcCommonItemBinding>(YcCommonItemBinding::inflate) {
             override fun onUpdate(holder: YcViewHolder<YcCommonItemBinding>, position: Int, data: String) {
                 holder.viewBinding.tvCommonItem.text = data
                 holder.viewBinding.tvCommonItem.setOnClickListener {
