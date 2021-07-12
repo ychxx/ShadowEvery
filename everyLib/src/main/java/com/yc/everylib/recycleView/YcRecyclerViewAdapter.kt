@@ -12,7 +12,6 @@ import androidx.viewbinding.ViewBinding
  */
 abstract class YcRecyclerViewAdapter<Data : Any, VB : ViewBinding>(
     protected val createVB: ((LayoutInflater) -> VB)? = null,
-    protected val mContext: Context
 ) :
     RecyclerView.Adapter<YcViewHolder<VB>>() {
 
@@ -32,7 +31,7 @@ abstract class YcRecyclerViewAdapter<Data : Any, VB : ViewBinding>(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): YcViewHolder<VB> {
-        return YcViewHolder(createVB!!.invoke(LayoutInflater.from(mContext)))
+        return YcViewHolder(createVB!!.invoke(LayoutInflater.from(parent.context)))
     }
 
     private var mItemClick: ((Data, Int) -> Unit)? = null
