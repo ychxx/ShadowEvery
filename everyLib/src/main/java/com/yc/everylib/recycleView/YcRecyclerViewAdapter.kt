@@ -34,8 +34,8 @@ abstract class YcRecyclerViewAdapter<Data : Any, VB : ViewBinding>(
         return YcViewHolder(createVB!!.invoke(LayoutInflater.from(parent.context)))
     }
 
-    private var mItemClick: ((Data, Int) -> Unit)? = null
-    fun setItemClick(block: (Data, Int) -> Unit) {
+    private var mItemClick: ((item: Data, position: Int) -> Unit)? = null
+    fun setItemClick(block: (item: Data, position: Int) -> Unit) {
         mItemClick = block
     }
 

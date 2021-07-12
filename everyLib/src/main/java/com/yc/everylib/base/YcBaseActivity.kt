@@ -76,14 +76,24 @@ abstract class YcBaseActivity<VB : ViewBinding>(private val createVB: ((LayoutIn
         this.observe(this@YcBaseActivity, observer)
     }
 
-    protected inline fun startResultYc(intent: Intent, crossinline success: ((result: ActivityResult) -> Unit)) {
+    protected inline fun createResultLauncher(crossinline success: ((result: ActivityResult) -> Unit)) =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode != Activity.RESULT_OK) {
                 success(it)
             }
-        }.launch(intent)
+        }
+
+    protected inline fun createResultLauncher(
+        crossinline success: ((result: ActivityResult) -> Unit),
+        crossinline fail: ((result: ActivityResult) -> Unit)
+    ) = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode != Activity.RESULT_OK) {
+            success(it)
+        } else {
+            fail(it)
+        }
     }
-    
+
     fun showToast(msg: String) {
         if (this.isFinishing) {
             return
